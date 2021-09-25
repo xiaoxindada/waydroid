@@ -50,6 +50,7 @@ def download(args, url, prefix, cache=True, loglevel=logging.INFO,
             logging.warning("WARNING: file not found: " + url)
             return None
         raise
+    downloadEnded = True
 
     # Return path in cache
     return path
