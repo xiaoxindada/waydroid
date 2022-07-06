@@ -82,6 +82,9 @@ def arguments_app(subparser):
     remove.add_argument('PACKAGE', help="package name of app to remove")
     launch = sub.add_parser("launch", help="start single application")
     launch.add_argument('PACKAGE', help="package name of app to launch")
+    intent = sub.add_parser("intent", help="start single application")
+    intent.add_argument('ACTION', help="action name")
+    intent.add_argument('URI', help="data uri")
     sub.add_parser("list", help="list installed applications")
     return ret
 
@@ -129,6 +132,8 @@ def arguments():
                         " logfiles (this may reduce performance)")
     parser.add_argument("-q", "--quiet", dest="quiet", action="store_true",
                         help="do not output any log messages")
+    parser.add_argument("-w", "--wait", dest="wait_for_init", action="store_true",
+                        help="wait for init before running")
 
     # Actions
     sub = parser.add_subparsers(title="action", dest="action")
